@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct RootView: View {
+    @StateObject private var appState = AppState()
+    
     var body: some View {
-        Text("Root View")
-            .font(.title)
+        Group {
+            if appState.isLoggedIn {
+                MainTabView()
+            } else {
+                LoginView(appState: appState)
+            }
+        }
     }
 }
 
