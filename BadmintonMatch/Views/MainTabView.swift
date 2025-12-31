@@ -10,11 +10,27 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            Text("Home")
+            HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            Text("Profile")
+            
+            DiscoverView()
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+            
+            MatchesView()
+                .tabItem {
+                    Label("Matches", systemImage: "sportscourt")
+                }
+            
+            ChatListView()
+                .tabItem {
+                    Label("Chat", systemImage: "bubble.left.and.bubble.right")
+                }
+            
+            ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
