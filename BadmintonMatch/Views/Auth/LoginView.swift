@@ -19,7 +19,7 @@ struct LoginView: View {
             Text("BadmintonMatch")
                 .font(.largeTitle)
                 .bold()
-            Button("Zaloguj się!") {
+            Button("Next!") {
                 viewModel.login()
             }
             .buttonStyle(.borderedProminent)

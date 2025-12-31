@@ -12,10 +12,12 @@ struct RootView: View {
     
     var body: some View {
         Group {
-            if appState.isLoggedIn {
-                MainTabView()
-            } else {
+            if !appState.isLoggedIn {
                 LoginView(appState: appState)
+            } else if !appState.hasProfile {
+                ProfileSetupView(appState: appState)
+            } else {
+                MainTabView()
             }
         }
     }

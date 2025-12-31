@@ -10,4 +10,5 @@ import Combine
 
 final class AppState: ObservableObject {
     @Published var isLoggedIn: Bool = false
+    @Published var hasProfile: Bool = false
 }
