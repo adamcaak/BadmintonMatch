@@ -22,7 +22,7 @@ final class ProfileSetupViewModel: ObservableObject {
     func saveProfile() {
         guard let skill = selectedSkill, !name.isEmpty else { return }
         
-        let profile = PlayerProfile(name: name, skillLevel: skill)
+        let profile = PlayerProfile(id: UUID(), name: name, skillLevel: skill, city: "")
         userService.save(profile: profile)
         
         appState.hasProfile = true

@@ -17,9 +17,9 @@ final class HomeViewModel: ObservableObject {
     
     private func loadMockData() {
         recommendedPlayers = [
-            PlayerProfile(name: "Tom", skillLevel: .beginner),
-            PlayerProfile(name: "Luka", skillLevel: .intermediate),
-            PlayerProfile(name: "Kamil", skillLevel: .advanced)
+            PlayerProfile(id: UUID(), name: "Tom", skillLevel: .beginner, city: "Krakow"),
+            PlayerProfile(id: UUID(), name: "Luka", skillLevel: .intermediate, city: "Warszawa"),
+            PlayerProfile(id: UUID(), name: "Kamil", skillLevel: .advanced, city: "Gdańsk")
         ]
     }
 }
