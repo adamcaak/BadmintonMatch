@@ -10,6 +10,16 @@ import SwiftUI
 struct PlayerDetailView: View {
     let player: PlayerProfile
     
+    @StateObject private var viewModel: PlayerDetailViewModel
+    
+    init(player: PlayerProfile) {
+        self.player = player
+        
+        let mockCurrentUser = PlayerProfile(id: UUID(), name: "Lukas", skillLevel: .intermediate, city: "Krakow")
+        
+        _viewModel = StateObject(wrappedValue: PlayerDetailViewModel(currentUser: mockCurrentUser))
+    }
+    
     var body: some View {
         VStack(spacing: 16) {
             Text(player.name)
@@ -18,7 +28,7 @@ struct PlayerDetailView: View {
             Text(player.city)
             
             Button("Invite to play") {
-                //future
+                viewModel.invite(player: player)
             }
             .buttonStyle(.borderedProminent)
         }

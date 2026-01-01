@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct MatchesView: View {
+    @StateObject private var viewModel = MatchesViewModel()
+    
     var body: some View {
-        Text("Matches View")
+        NavigationStack {
+            List {
+                ForEach(viewModel.invites) { invite in
+                    VStack(alignment: .leading) {
+                        Text(invite.fromPlayer.name)
+                        Text(invite.status.rawValue)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+            .navigationTitle("Matches")
+            .onAppear {
+                viewModel.loadInvites()
+            }
+        }
     }
 }
 
