@@ -27,6 +27,6 @@ struct PlayerDetailView: View {
     }
 }
 
-//#Preview {
-//    PlayerDetailView()
-//}
+#Preview {
+    PlayerDetailView(player: PlayerProfile(id: UUID(), name: "Lukas", skillLevel: .advanced, city: "Krakow"))
+}
