@@ -10,7 +10,7 @@ import Foundation
 final class InviteService {
     private let repository: InviteRepository
     
-    init(repository: InviteRepository = MockInviteRepository()) {
+    init(repository: InviteRepository = MockInviteRepository.shared) {
         self.repository = repository
     }
     

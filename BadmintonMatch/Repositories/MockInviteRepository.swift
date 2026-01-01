@@ -8,6 +8,10 @@
 import Foundation
 
 final class MockInviteRepository: InviteRepository {
+    static let shared = MockInviteRepository()
+    
+    private init() {}
+    
     private var invites: [GameInvite] = []
     
     func send(invite: GameInvite) {
