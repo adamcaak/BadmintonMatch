@@ -18,6 +18,20 @@ struct MatchesView: View {
                         Text(invite.fromPlayer.name)
                         Text(invite.status.rawValue)
                             .foregroundStyle(.secondary)
+                        
+                        if invite.status == .pending {
+                            HStack {
+                                Button("Accept") {
+                                    viewModel.acceptInvite(invite: invite)
+                                }
+                                .buttonStyle(.borderedProminent)
+                                
+                                Button("Reject") {
+                                    viewModel.recejtInvite(invite: invite)
+                                }
+                                .buttonStyle(.bordered)
+                            }
+                        }
                     }
                 }
             }

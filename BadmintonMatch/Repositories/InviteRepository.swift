@@ -10,4 +10,5 @@ import Foundation
 protocol InviteRepository {
     func send(invite: GameInvite)
     func fetchInvites() -> [GameInvite]
+    func updateInvite(invite: GameInvite)
 }

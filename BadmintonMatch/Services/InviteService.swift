@@ -24,4 +24,16 @@ final class InviteService {
     func getInvites() -> [GameInvite] {
         repository.fetchInvites()
     }
+    
+    func acceptInvite(invite: GameInvite) {
+        var updatedInvite = invite
+        updatedInvite.status = .accepted
+        repository.updateInvite(invite: updatedInvite)
+    }
+    
+    func rejectInvite(invite: GameInvite) {
+        var updatedInvite = invite
+        updatedInvite.status = .rejected
+        repository.updateInvite(invite: updatedInvite)
+    }
 }

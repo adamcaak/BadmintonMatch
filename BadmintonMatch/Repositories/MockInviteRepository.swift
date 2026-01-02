@@ -21,4 +21,11 @@ final class MockInviteRepository: InviteRepository {
     func fetchInvites() -> [GameInvite] {
         invites
     }
+    
+    func updateInvite(invite: GameInvite) {
+        guard let index = invites.firstIndex(where: { $0.id == invite.id }) else {
+            return
+        }
+        invites[index] = invite
+    }
 }

@@ -17,5 +17,5 @@ struct GameInvite: Identifiable, Codable {
     let id: UUID
     let fromPlayer: PlayerProfile
     let toPlayer: PlayerProfile
-    let status: InviteStatus
+    var status: InviteStatus
 }
