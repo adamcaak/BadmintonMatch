@@ -16,6 +16,7 @@ struct MatchesView: View {
                 ForEach(viewModel.invites) { invite in
                     VStack(alignment: .leading) {
                         Text(invite.fromPlayer.name)
+                            .font(.headline)
                         Text(invite.status.rawValue)
                             .foregroundStyle(.secondary)
                         
@@ -36,9 +37,9 @@ struct MatchesView: View {
                 }
             }
             .navigationTitle("Matches")
-            .onAppear {
-                viewModel.loadInvites()
-            }
+//            .onAppear {
+//                viewModel.loadInvites()
+//            }
         }
     }
 }

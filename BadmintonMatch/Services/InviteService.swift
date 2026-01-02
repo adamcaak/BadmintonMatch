@@ -9,20 +9,25 @@ import Foundation
 
 final class InviteService {
     private let repository: InviteRepository
+    private(set) var invites: [GameInvite] = []
     
     init(repository: InviteRepository = MockInviteRepository.shared) {
         self.repository = repository
     }
     
-    func sendInvite(from: PlayerProfile, to: PlayerProfile) {
+    func sendInvite(to player: PlayerProfile) {
         let invite = GameInvite(
-            id: UUID(), fromPlayer: from, toPlayer: to, status: .pending
+            id: UUID(),
+            fromPlayer: CurrentUserService.shared.currentUser,
+            toPlayer: player,
+            status: .pending
         )
-        repository.send(invite: invite)
+        invites.append(invite)
     }
     
     func getInvites() -> [GameInvite] {
-        repository.fetchInvites()
+        //repository.fetchInvites()
+        invites
     }
     
     func acceptInvite(invite: GameInvite) {

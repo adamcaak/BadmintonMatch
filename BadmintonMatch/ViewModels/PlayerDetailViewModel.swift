@@ -19,7 +19,7 @@ final class PlayerDetailViewModel: ObservableObject {
     }
     
     func invite(player: PlayerProfile) {
-        inviteService.sendInvite(from: currentUser, to: player)
+        inviteService.sendInvite(to: player)
     }
     
 }

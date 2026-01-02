@@ -12,9 +12,16 @@ final class MatchesViewModel: ObservableObject {
     @Published var invites: [GameInvite] = []
     
     private let inviteService = InviteService()
+    private let currentUser = CurrentUserService.shared.currentUser
+    
+    init() {
+        loadInvites()
+    }
     
     func loadInvites() {
-        invites = inviteService.getInvites()
+        let allInvites = inviteService.getInvites()
+        
+        invites = allInvites.filter { $0.toPlayer.id == CurrentUserService.shared.currentUser.id }
     }
     
     func acceptInvite(invite: GameInvite) {
