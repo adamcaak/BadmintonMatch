@@ -55,7 +55,9 @@ struct MatchesView: View {
              }
             .navigationTitle("Matches")
             .onAppear {
-                viewModel.loadInvites()
+                DispatchQueue.main.async {
+                    viewModel.loadInvites()
+                }
             }
         }
     }
