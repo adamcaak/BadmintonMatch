@@ -28,7 +28,6 @@ struct MatchesView: View {
                                             viewModel.acceptInvite(invite: invite)
                                         }
                                         .buttonStyle(.borderedProminent)
-                                        
                                         Button("Reject") {
                                             viewModel.recejtInvite(invite: invite)
                                         }
